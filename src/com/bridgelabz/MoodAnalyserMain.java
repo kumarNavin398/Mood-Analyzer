@@ -6,9 +6,14 @@ import java.util.Scanner;
 public class MoodAnalyserMain {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        MoodAnalyser mood = new MoodAnalyser();
         System.out.println("Enter your message");
         String message = scan.nextLine();
-        System.out.println(mood.moodAnalyse(message));
+        MoodAnalyser mood = new MoodAnalyser(message);
+        try {
+            System.out.println(mood.moodAnalyse());
+        } catch (Exception e){
+            System.out.println("HAPPY");
+            System.out.println(e.getMessage());
+        }
     }
 }

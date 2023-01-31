@@ -1,16 +1,26 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
-
 public class MoodAnalyser {
-    public String moodAnalyse(String message){
+    public String message;
+    public MoodAnalyser(){
+        this.message = "I am Happy";
+    }
+    public  MoodAnalyser(String message){
+        this.message = message;
+    }
+    public String moodAnalyse() throws Exception{
 
-        String words[] = message.split(" ");
+        String result = "HAPPY";
+        String[] words = this.message.split(" ");
         for (int i = 0; i < words.length; i++) {
             if (words[i].equalsIgnoreCase("sad")) {
-                return "SAD";
+                result = "SAD";
+            } else if (words[i].equalsIgnoreCase("happy")) {
+                result = "HAPPY";
+            } else {
+                throw new Exception("Null or Empty Mood");
             }
         }
-        return "HAPPY";
+        return result;
     }
 }
